@@ -1,0 +1,24 @@
+uuid: d49fa42b-6660-4ede-b578-47d519175b29
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_first_name
+  enforced:
+    module:
+      - user
+      - osl_mgrtn_content
+_core:
+  default_config_hash: mO7b9xyoJQRoxkrg0Ey-UsrlWluxQBacmWJ-DC2SkkQ
+id: user.user.field_first_name
+field_name: field_first_name
+entity_type: user
+bundle: user
+label: 'First name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,37 @@
+id: osl_mgrtn_content_authors
+label: CSV Migrate Authors
+migration_tags:
+  - OSL Migrate CSV
+migration_group: null
+label: 'Author migration from CSV'
+source:
+  plugin: csv
+  path: modules/custom/osl_mgrtn_content/assets/csv/authors.csv
+  header_row_count: 1
+  ids: [id]
+  fields:
+    -
+      name: id
+      label: ID
+    -
+      name: email
+      label: Email
+    -
+      name: username
+      label: Username
+    -
+      name: firstname
+      label: 'First Name'
+    -
+      name: lastname
+      label: 'Last Name'
+process:
+  mail: email
+  name: username
+  field_first_name: firstname
+  field_last_name: lastname
+destination:
+  plugin: 'entity:user'
+migration_dependencies:
+  required: {  }
+  optional: {  }

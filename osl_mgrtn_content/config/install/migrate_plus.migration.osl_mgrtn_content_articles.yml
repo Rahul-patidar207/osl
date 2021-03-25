@@ -1,0 +1,59 @@
+id: osl_mgrtn_content_articles
+label: CSV Migrate Articles
+migration_tags:
+  - OSL Migrate CSV
+source:
+  plugin: csv
+  path: modules/custom/osl_mgrtn_content/assets/csv/articles.csv
+  header_row_count: 1
+  ids: [id]
+  fields:
+    -
+      name: id
+      label: ID
+    -
+      name: title
+      label: Title
+    -
+      name: author_name
+      label: 'Author Name'
+    -
+      name: created
+      label: 'Creation Date'
+    -
+      name: body
+      label: Body
+    -
+      name: tags
+      label: Tags
+process:
+  title: title
+  body: body
+  field_tags:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: tags
+    -
+      plugin: explode
+      delimiter: ','
+    -
+      plugin: callback
+      callable: trim
+    -
+      plugin: entity_generate
+      entity_type: taxonomy_term
+      bundle: tags
+      value_key: name
+      bundle_key: vid
+  field_author_name: author_name
+  created/value:
+    plugin: format_date
+    from_format: d/m/Y
+    to_format: 'U'
+    source: created
+  type:  
+    plugin: default_value
+    default_value: article
+destination:
+  plugin: entity:node

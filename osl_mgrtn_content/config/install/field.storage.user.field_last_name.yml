@@ -1,0 +1,25 @@
+uuid: 1c969136-eed0-4bde-a4d3-2933a7a21c78
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - user
+      - osl_mgrtn_content
+_core:
+  default_config_hash: jnuyhlMJQq7tjLEgbe_D8MZsSDjeRsIyIThPJLopTUk
+id: user.field_last_name
+field_name: field_last_name
+entity_type: user
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

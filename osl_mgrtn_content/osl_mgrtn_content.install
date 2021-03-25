@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Implements hook_uninstall()
+ */
+function osl_mgrtn_content_uninstall() {
+  Drupal::configFactory()->getEditable('migrate_plus.migration.osl_mgrtn_content_articles')->delete();
+  Drupal::configFactory()->getEditable('migrate_plus.migration.osl_mgrtn_content_authors')->delete();
+}

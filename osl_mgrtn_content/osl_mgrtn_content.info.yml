@@ -1,0 +1,10 @@
+name: OSL Migrstion Plugin
+description: This module will migrate Articles and Author data from CSV.
+type: module
+package: OSL
+core: 8.x
+
+dependencies:
+  - drupal:migrate
+  - migrate_source_csv
+  - migrate_tools
